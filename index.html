@@ -1,0 +1,71 @@
+<!--
+Implementare la pagina index.html 
+scegliere l'argomento
+scegliere il titolo
+inserire la data (giorno della settimana, giorno, mese e anno) e l'ora (ora e minuti)
+inserire una galleria di almeno due immagini -->
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css"/>
+    <script>
+      function autoRefresh() {
+          window.location = window.location.href;
+      }
+      setInterval('autoRefresh()', 20000);
+
+
+      var foto = new Array();
+      
+      foto[0]="img/img0.jpg";
+      foto[1]="img/img1.jpg";
+      foto[2]="img/img2.jpg";
+      foto[3]="img/img3.jpg";
+      
+      var i=0;
+      
+      function avanti(){
+        if (i<foto.length-1)
+           i++;
+          else
+            i = 0
+        document.getElementById("image").src=foto[i];
+        document.getElementById().innerHTML=str[1];
+      }
+      
+      function indietro(){
+        if (i != 0)
+           i--;
+        else
+        i = foto.length-1
+        document.getElementById("image").src=foto[i];
+        document.getElementById().innerHTML=str[1];
+      }
+      </script>
+  </head>
+
+  <body>
+  <div>
+    <div id="titolo">
+      <h1>Auto in vendita</h1>
+    </div>
+    
+    <div id="par">
+      <p><span id="datetime"></span></p>
+      <script>
+        var dt = new Date();
+        document.getElementById("datetime").innerHTML = (("0"+dt.getDate()).slice(-2)) +"/"+ (("0"+(dt.getMonth()+1)).slice(-2)) +"/"+ (dt.getFullYear()) +" "+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2));
+      </script>
+      
+      <br>
+      <img src="img/img0.jpg" id="image">
+      <br><br><br>
+      <input type="submit" value="indietro" button onclick="indietro()">
+      <input type="submit" value="avanti" button onclick="avanti()">
+    </div>
+  </div>
+    
+  </body>
+</html>
